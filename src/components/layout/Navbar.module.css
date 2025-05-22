@@ -1,0 +1,147 @@
+.navbar {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent; /* Minimalist tasarım için şeffaf */
+  color: var(--text-color);
+  z-index: 1000;
+  transition: color var(--transition-normal);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  letter-spacing: 0.5px;
+  color: var(--link-color);
+  transition: color var(--transition-fast);
+}
+
+.logo:hover {
+  color: var(--link-hover);
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-md);
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li {
+  position: relative;
+}
+
+.navLinks a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  transition: color var(--transition-fast);
+}
+
+.navLinks a:hover,
+.navLinks a:focus {
+  color: var(--link-hover);
+}
+
+.navLinks a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--link-hover);
+  transition: width var(--transition-fast) ease-in-out;
+}
+
+.navLinks a:hover::after,
+.navLinks a:focus::after {
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.languageSelect {
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.languageSelect:hover {
+  border-color: var(--link-color);
+}
+
+.languageSelect option {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.themeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  transition: color var(--transition-fast);
+}
+
+.themeBtn:hover {
+  color: var(--link-hover);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+  .navbar {
+    padding: var(--spacing-sm) var(--spacing-md);
+    flex-wrap: wrap; /* Üst üste binmeyi önlemek için */
+    gap: var(--spacing-sm);
+  }
+
+  .navContent {
+    gap: var(--spacing-sm);
+  }
+
+  .navLinks {
+    gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: var(--spacing-sm);
+  }
+
+  .navContent {
+    flex-wrap: wrap; /* Küçük ekranlarda taşmayı önler */
+    justify-content: center;
+  }
+
+  .navLinks {
+    gap: var(--spacing-sm);
+  }
+
+  .controls {
+    gap: var(--spacing-sm);
+  }
+}

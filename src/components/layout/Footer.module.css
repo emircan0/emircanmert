@@ -1,0 +1,21 @@
+/* Footer.module.css */
+.footer {
+  padding: 2rem;
+  color: var(--footer-text, #eee);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: var(--footer-link, #000);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.socials {
+  margin-top: 0.5rem;
+}

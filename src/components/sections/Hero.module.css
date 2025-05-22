@@ -1,0 +1,102 @@
+.heroSection {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-md);
+  animation: fadeIn 0.6s ease-out;
+  transition: color var(--transition-normal), background-color var(--transition-normal);
+}
+
+.heroContent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+}
+
+.imageWrapper {
+  flex: 0 0 auto;
+}
+
+.profileImage {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  transition: transform var(--transition-normal);
+}
+
+.profileImage:hover {
+  transform: scale(1.02);
+}
+
+.textContent {
+  flex: 1;
+}
+
+.heroTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
+  color: var(--link-color);
+}
+
+.heroSubtitle {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--text-color);
+  margin-bottom: var(--spacing-md);
+}
+
+.aboutText {
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--text-color);
+  opacity: 0.9;
+  max-width: 60ch;
+}
+
+/* Fade animasyonu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profileImage {
+    width: 150px;
+    height: 225px;
+  }
+
+  .heroTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .aboutText {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .profileImage {
+    width: 120px;
+    height: 180px;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+}

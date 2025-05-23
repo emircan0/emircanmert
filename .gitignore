@@ -1,1 +1,14 @@
+# node_modules klasörünü dışla
 node_modules/
+
+# Vite build çıktısı
+dist/
+
+# Ortam dosyaları
+.env
+
+# macOS sistem dosyası
+.DS_Store
+
+# Log dosyaları
+*.log

@@ -164,7 +164,7 @@ export const locales = {
       email: 'Email: emircanmertt@gmail.com',
       github: 'GitHub: github.com/emircan0',
       linkedin: 'LinkedIn: linkedin.com/in/emircanmert',
-      website: 'Website: emircan0.github.io/emircanmert',
+      website: 'Website: https://emircan0.github.io/emircanmert/',
     },
     nav: {
       home: 'Home',

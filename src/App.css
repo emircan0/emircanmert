@@ -1,10 +1,21 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%; /* max-width yerine tam genişlik */
+  margin: 0; /* Ortalanmayı kaldır */
+  padding: 0; /* Padding'i sıfırla */
   text-align: center;
 }
 
+.container {
+  width: 100%; /* Tam genişlik */
+  max-width: none; /* Maksimum genişlik sınırını kaldır */
+  margin: 0; /* Ortalanmayı kaldır */
+  padding: 0; /* Kenar boşluklarını sıfırla (ihtiyaca göre ayarlanabilir) */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+} 
 
 .logo {
   height: 6em;

@@ -11,7 +11,7 @@ function Projects() {
 
   return (
     <section id="projects" className={styles.section} aria-label={locales[language].projects.title}>
-      <h2>{locales[language].projects.title}</h2>
+      <h2 className={styles.sectionTitle}>{locales[language].projects.title}</h2>
       <div className={styles.projectsList}>
         {projectsList.map((project, index) => (
           <article
@@ -20,8 +20,21 @@ function Projects() {
             tabIndex={0}
             aria-labelledby={`project-title-${index}`}
           >
-            <h3 id={`project-title-${index}`}>{project.title}</h3>
-            <p>{project.description}</p>
+            <h3 id={`project-title-${index}`} className={styles.projectTitle}>
+              {project.title}
+            </h3>
+            <p className={styles.projectDescription}>{project.description}</p>
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.projectLink}
+                aria-label={`Visit ${project.title} project`}
+              >
+                View Project
+              </a>
+            )}
           </article>
         ))}
       </div>

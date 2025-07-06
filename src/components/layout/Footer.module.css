@@ -1,21 +1,71 @@
-/* Footer.module.css */
 .footer {
-  padding: 2rem;
-  color: var(--footer-text, #eee);
+  padding: var(--spacing-md, 2rem) var(--spacing-sm, 1.5rem); /* Tutarlı boşluk */
+  background-color: var(--footer-bg, #f8f9fa); /* Hafif gri arka plan */
+  color: var(--footer-text, #333); /* Koyu gri metin */
   text-align: center;
-  font-size: 0.9rem;
+  font-size: var(--font-size-sm, 0.95rem); /* Daha okunaklı */
+  border-top: 1px solid var(--border-color-light, #dee2e6); /* İnce üst sınır */
+  transition: background-color var(--transition-normal, 0.3s ease), color var(--transition-normal, 0.3s ease);
+}
+
+.copyright {
+  margin: 0;
+  font-weight: 500;
 }
 
 .footer a {
-  color: var(--footer-link, #000);
+  color: var(--footer-link, #007bff); /* Modern mavi ton */
   text-decoration: none;
-  margin: 0 0.5rem;
+  margin: 0 var(--spacing-xs, 0.5rem); /* Tutarlı boşluk */
+  font-weight: 500;
+  transition: color var(--transition-normal, 0.3s ease);
 }
 
 .footer a:hover {
+  color: var(--link-hover, #0056b3); /* Hover ile renk değişimi */
   text-decoration: underline;
 }
 
 .socials {
-  margin-top: 0.5rem;
+  margin-top: var(--spacing-sm, 1rem); /* Daha tutarlı boşluk */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md, 1rem); /* Sosyal medya linkleri arasında boşluk */
+}
+
+.socials a {
+  margin: 0; /* Önceki margin'i sıfırla */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--spacing-sm, 1.5rem) var(--spacing-xs, 1rem);
+    font-size: var(--font-size-xs, 0.9rem);
+  }
+
+  .socials {
+    flex-direction: row;
+    gap: var(--spacing-sm, 0.75rem);
+  }
+
+  .footer a {
+    margin: 0 var(--spacing-xs, 0.3rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: var(--spacing-xs, 1rem) var(--spacing-xxs, 0.5rem);
+  }
+
+  .socials {
+    flex-direction: column;
+    gap: var(--spacing-xs, 0.5rem);
+  }
+
+  .footer a {
+    margin: 0;
+  }
 }

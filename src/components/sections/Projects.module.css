@@ -1,59 +1,109 @@
 .section {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px; /* Daha geniş bir maksimum genişlik */
   margin: 0 auto;
-  padding: 4rem 2rem;
-  animation: fadeIn 0.6s ease-out;
-  transition: color var(--transition-normal);
+  padding: 5rem 2rem; /* Daha fazla boşluk */
+  background-color: var(--section-bg, #f8f9fa); /* Hafif arka plan */
+  animation: fadeIn 0.8s ease-out; /* Daha yumuşak animasyon */
 }
 
-.section h2 {
-  font-size: 2.2rem;
-  font-weight: 600;
-  margin-bottom: 3rem;
-  color: var(--link-color);
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 0.5rem;
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+  border-bottom: 3px solid var(--border-color, #007bff); /* Daha belirgin sınır */
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--link-color, #007bff);
+  transition: width 0.3s ease;
+}
+
+.sectionTitle:hover::after {
+  width: 120px;
 }
 
 .projectsList {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 2.5rem; /* Daha fazla boşluk */
 }
 
 .projectEntry {
-  background-color: var(--card-bg, rgba(255, 255, 255, 0.04));
-  padding: 2rem;
+  background-color: var(--card-bg, #ffffff);
+  padding: 2.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Daha yumuşak gölge */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-left: 4px solid var(--border-color, #007bff); /* Zaman çizgisi efekti */
+  position: relative;
+}
+
+.projectEntry::before {
+  content: '';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-color: var(--border-color, #007bff);
+  border-radius: 50%;
 }
 
 .projectEntry:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1); /* Daha belirgin hover efekti */
 }
 
-.projectEntry h3 {
-  margin-bottom: 0.75rem;
-  font-size: 1.4rem;
+.projectTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--link-color, #007bff);
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.projectTitle:hover {
+  color: var(--link-hover, #0056b3);
+}
+
+.projectDescription {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--text-color, #495057);
+  margin-bottom: 1.5rem;
+}
+
+.projectLink {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--link-color, #007bff);
+  color: #ffffff;
   font-weight: 600;
-  color: var(--link-color);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.projectEntry p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-color);
-  opacity: 0.95;
+.projectLink:hover {
+  background-color: var(--link-hover, #0056b3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
 }
 
-/* Animasyon */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -62,30 +112,69 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .section {
+    padding: 4rem 1.5rem;
+    max-width: 900px;
+  }
+
+  .projectsList {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .projectEntry {
+    padding: 2rem;
+  }
+
+  .projectTitle {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .section {
-    padding: 3rem 1.5rem;
+    padding: 3rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .projectsList {
+    grid-template-columns: 1fr; /* Tek sütun */
   }
 
   .projectEntry {
     padding: 1.5rem;
   }
 
-  .projectEntry h3 {
-    font-size: 1.2rem;
+  .projectTitle {
+    font-size: 1.3rem;
   }
 
-  .projectEntry p {
-    font-size: 0.95rem;
+  .projectDescription {
+    font-size: 1rem;
+  }
+
+  .projectLink {
+    padding: 0.6rem 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .section {
-    padding: 2rem 1rem;
+  .sectionTitle {
+    font-size: 1.8rem;
   }
 
-  .section h2 {
-    font-size: 1.8rem;
+  .projectEntry {
+    padding: 1.2rem;
+  }
+
+  .projectTitle {
+    font-size: 1.2rem;
+  }
+
+  .projectDescription {
+    font-size: 0.95rem;
   }
 }
